@@ -92,10 +92,8 @@ position: absolute;
    margin: 0px;
    padding: 0px;
 }
-co
-.books{
 
-}
+
 .Title {
    font-size: 35;
       flex: 1;
@@ -111,25 +109,48 @@ co
 
 .Title {
    font-size: 100px; 
+   margin-top: 5%;
+   margin-bottom: 5%;
 }
 
 .impactContent{
+   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
    font-size: 80px;
    color: #f5f1ed;
    background-color: #264428;
-   position: relative;
-   left: 50px;
-
-   overflow: hidden;
-   display: flex;
    text-align: center;
-   margin-top: 100px;
+   gap: 5% 0px;
+   margin-bottom: 25%;
+   align-items: center;
+   justify-items: center;
+}
+
+
+
+#buy{
+   font-family: "Belleza", sans-serif; 
+   font-size: 80%;
+   color: #fbeaed;
+   background-color:#172f19;
+   border-radius: 5%;
+   margin: 30% 30% 10% 10%;
+   padding: 5%;
+   align-items: center;
+   justify-content: center;
+
+}
+
+#buy:hover{
+    background-color: #fbeaed;
+    color: #172f19;
 }
 
 .missionContent {
    text-align: center;
     display: flex;                       /* Use Flexbox for layout */
     align-items: center;                 /* Align items vertically centered */
+    
     background-color:#274529;           /* Set background color */
     font-size: 35px;                     /* Apply font size to .missionContent */
     color: #fbeaed;                      /* Apply text color to .missionContent */
@@ -148,13 +169,6 @@ co
    padding-right: 0px;
 }
 
-.imageRight {
-    float: right; 
-    max-width: 100%;
-   height: auto;
-   padding-right: 0px;
-   padding-left: 0px;
-}
 
 /* STYLE TEXT */
 
@@ -174,29 +188,28 @@ h1 {
   margin: 2cm;
  
 }
-/* Cook*/
-.cooks{
+
+.bar{
    background-color: #f5f1ed;
- /*  background-color: #fbeaed;*/
-   padding-left: 0%;
+   align-items: center;
+   justify-items: center;
+      align-content: center;
+   justify-content: center;
 }
 
-.cooks p{
+.bar p{
    color: #264428;
-   padding-top: 30px;
 }
 
-.cooks img{
+.bar img{
     width: 35%;
     height: auto;
 }
 
-#cook1{
-   padding-bottom: 40px;
-}
+
 
 .impactContent p {
-   padding-right: 20px;
+   padding : 5%;
 }
 /* cook end*/
 
@@ -211,16 +224,7 @@ h1 {
 
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 2 columns */
-  gap: 1em; /* Space between items */
-  padding: 0 35px; /* Horizontal padding */
-}
 
-.wrapper img{
-   width: 100%; /* Full width */
-}
 /*contact end*/
 
 .base-image {
@@ -267,11 +271,5 @@ h1 {
    font-size: 50px;
 }
 
-/* Adjust size of icons and text if needed */
-.section i {
-  font-size: 50px; /* Icon size */
-}
 
-.section span {
-  font-size: 10px; /* Text size */
-}
+
