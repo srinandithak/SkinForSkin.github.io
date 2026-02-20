@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         message.textContent = "❌ " + data.error;
       }
     } catch (err) {
-      message.textContent = "❌ Server not responding.";
+      message.textContent = "Server not responding.";
     }
   });
 });
