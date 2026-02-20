@@ -40,9 +40,9 @@ body {
    color:#264428;
    font-size: 60px;
    padding-left: 19px;
-   margin-left: 20px;
-   margin-right: 20px;
-   margin-top: 2px;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-top: 1%;
 }
 .Chapter p{
    padding-top: 8px;
@@ -107,7 +107,45 @@ h2 {
    margin-top: 0px;
    padding-top: 0px;
 }
+#email{
+   font-family: "Belleza", sans-serif; 
+   font-size: 70%;
+   color: #fbeaed;
+   background-color:#172f19;
+   border-radius: 20px;
+   align-items: center;
+   justify-content: center;
+   padding: 1%;
+   margin-right: 5%;
+}
 
+.newsletter{
+    background-color: #fbeaed;
+   color:#264428;
+    display: flex;
+    align-items: left;
+   justify-content: left;
+   font-size: 250%;
+   padding: 1%;
+   margin: 2% 2% 0 2%;
+   gap: 2%;
+}
+
+.newsletter p {
+   margin: 0;
+   color:#264428;
+}
+
+#newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#email:hover{
+    background-color: #fbeaed;
+    color: #172f19;
+}
 #add{
    font-family: "Belleza", sans-serif; 
    font-size: 50px;

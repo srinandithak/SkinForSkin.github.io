@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
 
-    <!-- importing font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
+<head>
+
+  <!-- importing font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Belleza&display=swap" rel="stylesheet">
 
 
 
-      <title>Get Involved</title>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Involved</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <!-- link the webpage's stylesheet -->
-      <link rel="stylesheet" href="/getInvolved.css" />
+  <!-- link the webpage's stylesheet -->
+  <link rel="stylesheet" href="/getInvolved.css" />
 
-      <!-- link the webpage's JavaScript file -->
-      <script src="/getInvolved.js" defer></script>
+  <!-- link the webpage's JavaScript file -->
+  <script src="/getInvolved.js" defer></script>
 
-    </head>
+</head>
+
 <body>
 
   <div class="header">
-    <a href = "index.html"> <img id = "logo" src ="assets/sfslogo.png" alt = "Skin for Skin Logo. A circle with peach, purple, and green shapes in it. The outline of a face spells out the letter S, and the rest of the name Skin for Skin is spelled out.">
-      </a>
-  <span>Get Involved</span>
+    <a href="index.html"> <img id="logo" src="assets/sfslogo.png"
+        alt="Skin for Skin Logo. A circle with peach, purple, and green shapes in it. The outline of a face spells out the letter S, and the rest of the name Skin for Skin is spelled out.">
+    </a>
+    <span>Get Involved</span>
   </div>
 
   <div class="tabs-container">
@@ -35,34 +38,69 @@
       <a href="ourTeam.html">Our Team</a>
     </div>
   </div>
-
-  <div class = "Chapter">
+  <div class="newsletter">
+    <p>Sign up for our newsletter!</p>
+    <form id="newsletter-form">
+      <input type="email" id="email" placeholder="Your email" required />
+      <button type="submit" id="email">Subscribe</button>
+    </form>
+    <div id="message"></div>
+  </div>
+  <div class="Chapter">
     <p>Start a Chapter</p>
   </div>
   <div class="wrapper">
     <div class="section">
-      <img src = "assets/stack.png" alt = "Image of hands stacked on top of eachother.">
+      <img src="assets/stack.png" alt="Image of hands stacked on top of eachother.">
     </div>
     <div class="section">
       <p>Make a difference in your community by starting and leading your own chapter!</p>
-      <a class = "link" href="https://docs.google.com/forms/d/e/1FAIpQLSeZn16_0hfYSnjCPJhSkTD6mbO_1jGbDtTQ3YASK1-ELD0Wjg/viewform" target="_blank">Click here to start a chapter!</a>
+      <a class="link"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeZn16_0hfYSnjCPJhSkTD6mbO_1jGbDtTQ3YASK1-ELD0Wjg/viewform"
+        target="_blank">Click here to start a chapter!</a>
     </div>
   </div>
 
   <!-- program directors -->
 
-  <div class = "Chapter">
+  <div class="Chapter">
     <p>Upcoming Events</p>
   </div>
   <div class="wrapper">
-<div class="section">
-  <h2>Parker University Health Fair</h2>
-  <p class = "cal">10:00 AM to 2:00 PM <br> 2540 Walnut Hill Lane Dallas, TX 75220</p>
-  <button id="add">Add to Calendar</button>
-</div>
     <div class="section">
-      <img src = "assets/sept14.png" alt = "Image of a calendar page with the words Sep 14">
+      <h2>Parker University Health Fair</h2>
+      <p class="cal">10:00 AM to 2:00 PM <br> 2540 Walnut Hill Lane Dallas, TX 75220</p>
+      <button id="add">Add to Calendar</button>
+    </div>
+    <div class="section">
+      <img src="assets/sept14.png" alt="Image of a calendar page with the words Sep 14">
     </div>
   </div>
-</body>
+  <script>
+  const form = document.getElementById("newsletter-form");
+  const message = document.getElementById("message");
 
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // stops page refresh
+
+    const email = document.getElementById("email").value;
+
+    const res = await fetch("http://localhost:3000/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      message.textContent = "✅ Successfully subscribed!";
+      form.reset();
+    } else {
+      message.textContent = "❌ " + data.error;
+    }
+  });
+</script>
+</body>
