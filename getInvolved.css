@@ -135,7 +135,9 @@ h2 {
    margin: 0;
    color:#264428;
 }
-
+#message {
+   margin-left: 2%;
+}
 #newsletter-form {
     display: flex;
     align-items: center;
@@ -189,4 +191,8 @@ h2 {
 .tabs a:hover {
   background-color: #f5f1ed;
   color: #264428;
+}
+
+.success-message p {
+   font-size: 40%;
 }
