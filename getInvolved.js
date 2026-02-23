@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         `;
       }else if (res.status === 400) {
-        message.textContent = "Email already subscribed!"
+        message.textContent = data.message;
       } else {
-        message.textContent = "❌ " + data.error;
+        message.textContent = data.message || "An error occurred.";
       }
     } catch (err) {
       message.textContent = "Server not responding.";
