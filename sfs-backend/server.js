@@ -29,8 +29,10 @@ const transporter = nodemailer.createTransport({
 //Triggered when we call /subscribe from frontend, defines post route 
 app.post("/subscribe", async (req, res) => {
     //contains submitted email
-    const { email } = req.body;
-
+  const email = req.body?.email;
+  if (!email || typeof email !== "string") {
+    return res.status(400).json({ message: "Email is required" });
+  }
     try {
         //inserts email in supabase 
         const { data, error } = await supabase
