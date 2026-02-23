@@ -15,7 +15,6 @@ const app = express();
 app.use(cors());
 //parsing json data 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 //connects supabase project
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
@@ -29,10 +28,8 @@ const transporter = nodemailer.createTransport({
 //Triggered when we call /subscribe from frontend, defines post route 
 app.post("/subscribe", async (req, res) => {
     //contains submitted email
-  const email = req.body?.email;
-  if (!email || typeof email !== "string") {
-    return res.status(400).json({ message: "Email is required" });
-  }
+    const { email } = req.body;
+
     try {
         //inserts email in supabase 
         const { data, error } = await supabase
@@ -63,5 +60,5 @@ app.post("/subscribe", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
