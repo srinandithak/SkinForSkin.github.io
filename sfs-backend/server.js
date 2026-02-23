@@ -15,6 +15,7 @@ const app = express();
 app.use(cors());
 //parsing json data 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //connects supabase project
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
