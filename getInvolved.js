@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const email = document.getElementById("email").value;
     try {
-      const res = await fetch("http://3.12.196.25:3000/subscribe", {
+      const res = await fetch("https://api.skinforskin.org/subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
